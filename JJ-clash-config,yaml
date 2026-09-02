@@ -1,0 +1,489 @@
+# Clash / Hako 配置
+# 依据 Clash Hako 官方配置最佳实践与字段参考整理
+# 更新日期：2026-09-02
+#
+# 使用前请将 Airport1.url 替换为你信任的 Clash / mihomo 订阅地址。
+# 不要把含有 Token、用户名或密码的真实订阅地址提交到公开仓库。
+
+# 常规设置
+mode: rule
+log-level: warning
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+
+# 记住手动选择和 Fake IP 映射
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# DNS
+# Hako 会在 Apple Packet Tunnel 内管理 DNS 与 TUN；无需配置监听端口或 dns-hijack。
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+
+  # 仅使用纯 IP 引导解析 DNS 服务器域名
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+  # 主 DNS
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+  # 以下域名返回真实 IP，不分配 Fake IP
+  fake-ip-filter:
+    - '+.lan'
+    - '+.local'
+    - '+.market.xiaomi.com'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+
+    # Google Lens / Voice
+    - 'lens.l.google.com'
+
+    # Nintendo Switch
+    - '*.n.n.srv.nintendo.net'
+
+    # PlayStation
+    - '+.stun.playstation.net'
+
+    # Xbox
+    - 'xbox.*.*.microsoft.com'
+    - '*.*.xboxlive.com'
+
+    # Microsoft 网络连通性检测
+    - '*.msftncsi.com'
+    - '*.msftconnecttest.com'
+
+# 远程代理集
+proxy-providers:
+  Airport1:
+    type: http
+    url: 'https://example.com/your-profile.yaml' # 替换为机场订阅地址
+    path: ./providers/Airport1.yaml
+    interval: 43200
+    filter: '^(?!(?:.*流量.*|.*时间.*|.*到期.*)).*$'
+    health-check:
+      enable: true
+      url: 'https://www.gstatic.com/generate_204'
+      interval: 600
+      lazy: true
+
+# 策略组
+proxy-groups:
+  - name: 默认代理
+    type: select
+    proxies:
+      - 香港节点
+      - 日本节点
+      - 新加坡节点
+      - 美国节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png'
+
+  - name: Google
+    type: select
+    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png'
+
+  - name: Ai
+    type: select
+    proxies: [美国节点, 默认代理, 香港节点, 日本节点, 新加坡节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'
+
+  - name: Apple
+    type: select
+    proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png'
+
+  - name: GitHub
+    type: select
+    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png'
+
+  - name: Social
+    type: select
+    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png'
+
+  - name: Microsoft
+    type: select
+    proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows.png'
+
+  - name: Games
+    type: select
+    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png'
+
+  - name: NETFLIX
+    type: select
+    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png'
+
+  - name: Spotify
+    type: select
+    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png'
+
+  - name: PayPal
+    type: select
+    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/Paypal.png'
+
+  - name: Shield
+    type: select
+    proxies: [默认代理, REJECT, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Lock.png'
+
+  - name: 漏网之鱼
+    type: select
+    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png'
+
+  - name: 香港节点
+    type: url-test
+    use: [Airport1]
+    filter: '(?i)(?:香港|港|HK|HKG|Hong[\s_-]*Kong)'
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 600
+    tolerance: 20
+    lazy: true
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png'
+
+  - name: 日本节点
+    type: url-test
+    use: [Airport1]
+    filter: '(?i)(?:日本|日|JP|JPN|Japan)'
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 600
+    tolerance: 20
+    lazy: true
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png'
+
+  - name: 新加坡节点
+    type: url-test
+    use: [Airport1]
+    filter: '(?i)(?:新加坡|新|SG|SGP|Singapore)'
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 600
+    tolerance: 20
+    lazy: true
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png'
+
+  - name: 美国节点
+    type: url-test
+    use: [Airport1]
+    filter: '(?i)(?:美国|美|US|USA|United\s*States|UnitedStates)'
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 600
+    tolerance: 20
+    lazy: true
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png'
+
+  - name: 自动选择
+    type: url-test
+    use: [Airport1]
+    filter: '(?i)(?:香港|港|HK|HKG|Hong\s*Kong|HongKong|日本|日|JP|JPN|Japan|新加坡|新|SG|SGP|Singapore|美国|美|US|USA|United\s*States|UnitedStates)'
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 600
+    tolerance: 30
+    lazy: true
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Round_Robin.png'
+
+  - name: 手动选择
+    type: select
+    use: [Airport1]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png'
+
+# 远程规则集
+rule-providers:
+  private_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs'
+    path: ./rules/private_domain.mrs
+    interval: 86400
+
+  ai_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs'
+    path: ./rules/ai.mrs
+    interval: 86400
+
+  youtube_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs'
+    path: ./rules/youtube.mrs
+    interval: 86400
+
+  google_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs'
+    path: ./rules/google.mrs
+    interval: 86400
+
+  github_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs'
+    path: ./rules/github.mrs
+    interval: 86400
+
+  spotify_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs'
+    path: ./rules/spotify.mrs
+    interval: 86400
+
+  telegram_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs'
+    path: ./rules/telegram.mrs
+    interval: 86400
+
+  netflix_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs'
+    path: ./rules/netflix.mrs
+    interval: 86400
+
+  paypal_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs'
+    path: ./rules/paypal.mrs
+    interval: 86400
+
+  whatsapp_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/whatsapp.mrs'
+    path: ./rules/whatsapp.mrs
+    interval: 86400
+
+  facebook_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs'
+    path: ./rules/facebook.mrs
+    interval: 86400
+
+  instagram_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/instagram.mrs'
+    path: ./rules/instagram.mrs
+    interval: 86400
+
+  snapchat_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/snap.mrs'
+    path: ./rules/snapchat.mrs
+    interval: 86400
+
+  twitter_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs'
+    path: ./rules/twitter.mrs
+    interval: 86400
+
+  discord_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs'
+    path: ./rules/discord.mrs
+    interval: 86400
+
+  microsoft_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs'
+    path: ./rules/microsoft.mrs
+    interval: 86400
+
+  apple_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs'
+    path: ./rules/apple.mrs
+    interval: 86400
+
+  porn_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-porn.mrs'
+    path: ./rules/porn.mrs
+    interval: 86400
+
+  games_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games-!cn.mrs'
+    path: ./rules/games.mrs
+    interval: 86400
+
+  geolocation-!cn:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs'
+    path: ./rules/geolocation-!cn.mrs
+    interval: 86400
+
+  cn_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
+    path: ./rules/cn.mrs
+    interval: 86400
+
+  private_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs'
+    path: ./rules/private_ip.mrs
+    interval: 86400
+
+  cn_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'
+    path: ./rules/cn_ip.mrs
+    interval: 86400
+
+  google_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs'
+    path: ./rules/google_ip.mrs
+    interval: 86400
+
+  telegram_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs'
+    path: ./rules/telegram_ip.mrs
+    interval: 86400
+
+  netflix_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs'
+    path: ./rules/netflix_ip.mrs
+    interval: 86400
+
+  twitter_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/twitter.mrs'
+    path: ./rules/twitter_ip.mrs
+    interval: 86400
+
+  apple_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs'
+    path: ./rules/apple_ip.mrs
+    interval: 86400
+
+# 分流规则
+rules:
+  - DOMAIN-SUFFIX,unpkg.com,DIRECT
+  - DOMAIN-SUFFIX,jsdelivr.net,DIRECT
+  - DOMAIN-SUFFIX,xhscdn.com,DIRECT
+  - DOMAIN-SUFFIX,clashmi.app,默认代理
+  - DOMAIN-SUFFIX,overcast.fm,默认代理
+  - DOMAIN-SUFFIX,overcast-cdn.com,默认代理
+  - DOMAIN-SUFFIX,jpush.cn,默认代理
+
+  - RULE-SET,cn_domain,DIRECT
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,private_ip,DIRECT,no-resolve
+
+  - RULE-SET,ai_domain,Ai
+  - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
+  - IP-ASN,399358,Ai,no-resolve # Claude
+
+  - RULE-SET,github_domain,GitHub
+  # 如需让 YouTube 独立命中 Google，可取消下一行注释。
+  # - RULE-SET,youtube_domain,Google
+  - RULE-SET,google_domain,Google
+
+  - RULE-SET,whatsapp_domain,Social
+  - RULE-SET,instagram_domain,Social
+  - RULE-SET,facebook_domain,Social
+  - RULE-SET,snapchat_domain,Social
+  - RULE-SET,telegram_domain,Social
+  - RULE-SET,twitter_domain,Social
+  - RULE-SET,discord_domain,Social
+
+  - RULE-SET,microsoft_domain,Microsoft
+  - RULE-SET,apple_domain,Apple
+  - RULE-SET,spotify_domain,Spotify
+
+  - RULE-SET,porn_domain,Shield
+  - DOMAIN-SUFFIX,91porn.com,Shield
+
+  - RULE-SET,netflix_domain,NETFLIX
+
+  - RULE-SET,games_domain,Games
+  - DOMAIN-SUFFIX,2ksports.com,Games
+  - DOMAIN-SUFFIX,marketingcloudapis.com,Games
+
+  - RULE-SET,paypal_domain,PayPal
+
+  - RULE-SET,telegram_ip,Social,no-resolve
+  - RULE-SET,twitter_ip,Social,no-resolve
+  - RULE-SET,apple_ip,Apple,no-resolve
+  - RULE-SET,google_ip,Google,no-resolve
+  - RULE-SET,netflix_ip,NETFLIX,no-resolve
+
+  - RULE-SET,geolocation-!cn,默认代理
+  - RULE-SET,cn_ip,DIRECT,no-resolve
+  - MATCH,漏网之鱼
