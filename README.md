@@ -11,3 +11,6 @@ https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config
 ```text
 https://cdn.jsdelivr.net/gh/sydneygao/JJ-clash-config@main/JJ-clash-config.yaml
 ```
+```text
+https://git.yylx.win/raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config.yaml
+```
