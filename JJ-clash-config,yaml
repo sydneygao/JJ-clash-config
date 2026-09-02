@@ -434,27 +434,37 @@ rule-providers:
 
 # 分流规则
 rules:
+  # 自定义前置规则
   - DOMAIN-SUFFIX,unpkg.com,DIRECT
   - DOMAIN-SUFFIX,jsdelivr.net,DIRECT
   - DOMAIN-SUFFIX,xhscdn.com,DIRECT
   - DOMAIN-SUFFIX,clashmi.app,默认代理
+  - DOMAIN-SUFFIX,clash.md,默认代理
+  - DOMAIN-SUFFIX,stash.wiki,默认代理
   - DOMAIN-SUFFIX,overcast.fm,默认代理
   - DOMAIN-SUFFIX,overcast-cdn.com,默认代理
   - DOMAIN-SUFFIX,jpush.cn,默认代理
-
-  - RULE-SET,cn_domain,DIRECT
+  
+  # 局域网规则
   - RULE-SET,private_domain,DIRECT
   - RULE-SET,private_ip,DIRECT,no-resolve
-
+  
+  # Ai前置防风控
   - RULE-SET,ai_domain,Ai
   - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
   - IP-ASN,399358,Ai,no-resolve # Claude
 
+  # 国内域名优先
+  - RULE-SET,cn_domain,DIRECT
+
   - RULE-SET,github_domain,GitHub
+
+  # Google含YouTube
   # 如需让 YouTube 独立命中 Google，可取消下一行注释。
   # - RULE-SET,youtube_domain,Google
   - RULE-SET,google_domain,Google
 
+  # 社交通信
   - RULE-SET,whatsapp_domain,Social
   - RULE-SET,instagram_domain,Social
   - RULE-SET,facebook_domain,Social
@@ -463,27 +473,54 @@ rules:
   - RULE-SET,twitter_domain,Social
   - RULE-SET,discord_domain,Social
 
+  # 微软
   - RULE-SET,microsoft_domain,Microsoft
-  - RULE-SET,apple_domain,Apple
-  - RULE-SET,spotify_domain,Spotify
 
+  # Apple
+  - RULE-SET,apple_domain,Apple
+
+  # 媒体
+  - RULE-SET,spotify_domain,Spotify
+  - RULE-SET,netflix_domain,NETFLIX
+
+  # 儿童保护
   - RULE-SET,porn_domain,Shield
   - DOMAIN-SUFFIX,91porn.com,Shield
 
-  - RULE-SET,netflix_domain,NETFLIX
-
+  # 游戏
   - RULE-SET,games_domain,Games
   - DOMAIN-SUFFIX,2ksports.com,Games
   - DOMAIN-SUFFIX,marketingcloudapis.com,Games
-
+  
+  # 支付
   - RULE-SET,paypal_domain,PayPal
-
+  
+  # IP规则后置
   - RULE-SET,telegram_ip,Social,no-resolve
   - RULE-SET,twitter_ip,Social,no-resolve
   - RULE-SET,apple_ip,Apple,no-resolve
   - RULE-SET,google_ip,Google,no-resolve
   - RULE-SET,netflix_ip,NETFLIX,no-resolve
 
-  - RULE-SET,geolocation-!cn,默认代理
+  # ASN规则
+  # Games ASN (ChatGPT定期自检netify.ai)
+  - IP-ASN,395856,Games,no-resolve # 2K Games
+  - IP-ASN,394977,Games,no-resolve # Take-Two
+  - IP-ASN,46555,Games,no-resolve # Take-Two
+  - IP-ASN,32590,Games,no-resolve # Valve / Steam
+  - IP-ASN,33353,Games,no-resolve # PlayStation
+  - IP-ASN,11278,Games,no-resolve # Nintendo of America
+  - IP-ASN,152877,Games,no-resolve # Nintendo Japan
+  - IP-ASN,22697,Games,no-resolve # Roblox
+  - IP-ASN,11281,Games,no-resolve # Roblox Corporate
+  # > Telegram ASN (定期按 https://cdn.jsdelivr.net/gh/budaobu/rules@main/lists/telegram_asn.list 更新)
+  - IP-ASN,44907,Social,no-resolve
+  - IP-ASN,59930,Social,no-resolve
+  - IP-ASN,62014,Social,no-resolve
+  - IP-ASN,62041,Social,no-resolve
+  - IP-ASN,211157,Social,no-resolve
+
+  # 海外兜底
+  - RULE-SET,geolocation-!cn,默认代理 #非国内区域
   - RULE-SET,cn_ip,DIRECT,no-resolve
   - MATCH,漏网之鱼
