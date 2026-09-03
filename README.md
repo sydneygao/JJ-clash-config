@@ -1,7 +1,7 @@
 # JJ-clash-config
 iOS Clash (Hako) 的配置文件。
 
-## 1. Full config
+## 1. JJ-clash-config
 **下载并找到以下代码，编辑替换订阅地址。**
 ```text
 proxy-providers:
@@ -31,7 +31,7 @@ https://cdn.jsdelivr.net/gh/sydneygao/JJ-clash-config@main/JJ-clash-config.yaml
 https://git.yylx.win/raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config.yaml
 ```
 
-## 2. Config no proxy-providers
+## 2. JJ-clash-config-only
 **配置文件不含`proxy-providers`机场订阅信息，需搭配机场订阅使用。**
 **机场订阅通过 App首页-覆写-资源-代理来源 进行添加。**
 ### 🔗 Config （no proxy-providers） download Links 
