@@ -1,8 +1,24 @@
 # JJ-clash-config
 iOS Clash (Hako) 的配置文件。
 
-## 1. JJ-clash-config
-**下载并找到以下代码，编辑替换订阅地址。**
+## 1. JJ-clash-config，含机场的配置文件
+
+### Step 1.🔗 下载配置文件
+
+**Original link:**
+```text
+https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config.yaml
+```
+**China acceleration 🚀:**
+```text
+https://cdn.jsdelivr.net/gh/sydneygao/JJ-clash-config@main/JJ-clash-config.yaml
+```
+```text
+https://git.yylx.win/raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config.yaml
+```
+
+### Step 2.✈️ 添加机场订阅 
+**找到以下代码，补充完整信息**
 ```text
 proxy-providers:
   Airport1:
@@ -17,24 +33,13 @@ proxy-providers:
       interval: 600
       lazy: true
 ```
-### 🔗 Full config download Links 
+### Step 3.➕ 导入配置
+**Clash首页-配置-添加配置-文件导入，选择上述修改后的`JJ-clash-config,yaml`**
+** **
+## 2. JJ-clash-config-only，不含`proxy-providers`机场订阅信息
 
-**Original link:**
-```text
-https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config.yaml
-```
-**China acceleration 🚀:**
-```text
-https://cdn.jsdelivr.net/gh/sydneygao/JJ-clash-config@main/JJ-clash-config.yaml
-```
-```text
-https://git.yylx.win/raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config.yaml
-```
+### Step 1.🔗 Clash首页-配置-添加配置-链接导入，填写以下链接。
 
-## 2. JJ-clash-config-only
-**配置文件不含`proxy-providers`机场订阅信息，需搭配机场订阅使用。**
-**机场订阅通过 App首页-覆写-资源-代理来源 进行添加。**
-### 🔗 Config （no proxy-providers） download Links 
 **Original link:**
 ```text
 https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config-only.yaml
@@ -46,4 +51,4 @@ https://cdn.jsdelivr.net/gh/sydneygao/JJ-clash-config@main/JJ-clash-config-only.
 ```text
 https://git.yylx.win/raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-clash-config-onnly.yaml
 ```
-
+### Step 2.✈️ 机场订阅与配置分离，机场订阅可通过 App首页-覆写-资源-代理来源 进行添加。
