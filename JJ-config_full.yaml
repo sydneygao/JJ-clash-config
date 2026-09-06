@@ -102,13 +102,18 @@ proxy-groups:
 
   - name: Ai
     type: select
-    proxies: [美国手动, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 自动选择, 手动选择, DIRECT]
+    proxies: [美国手动, 美国自动, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'
 
   - name: Apple
     type: select
     proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png'
+
+  - name: GitHub
+    type: select
+    proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png'
 
   - name: Social
     type: select
@@ -195,6 +200,17 @@ proxy-groups:
     hidden: true
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png'
 
+    - name: 自动选择
+    type: url-test
+    use: [Airport1]
+    filter: '(?i)(?:香港|港|HK|HKG|Hong[\s_-]*Kong|日本|日|JP|JPN|Japan|新加坡|新|SG|SGP|Singapore|美国|美|\bUS\b|\bUSA\b|United[\s_-]*States)'
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 600
+    tolerance: 30
+    lazy: true
+    hidden: true
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Round_Robin.png'
+
   # 港 / 日 / 新 / 美：区域手动选择组（显示）
   - name: 香港手动
     type: select
@@ -223,17 +239,6 @@ proxy-groups:
     filter: '(?i)(?:美国|美|United\s*States|UnitedStates|\bUS\b|\bUSA\b)'
     hidden: false
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png'
-
-  - name: 自动选择
-    type: url-test
-    use: [Airport1]
-    filter: '(?i)(?:香港|港|HK|HKG|Hong[\s_-]*Kong|日本|日|JP|JPN|Japan|新加坡|新|SG|SGP|Singapore|美国|美|\bUS\b|\bUSA\b|United[\s_-]*States)'
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 600
-    tolerance: 30
-    lazy: true
-    hidden: true
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Round_Robin.png'
 
   - name: 手动选择
     type: select
@@ -477,12 +482,14 @@ rules:
   - DOMAIN-SUFFIX,overcast.fm,默认代理 # overcast
   - DOMAIN-SUFFIX,overcast-cdn.com,默认代理 # overcast
   - DOMAIN-SUFFIX,jpush.cn,默认代理
-  - RULE-SET,github_domain,默认代理 # Github
 
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
   - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
   - IP-ASN,399358,Ai,no-resolve # Claude
+
+  # Github
+  - RULE-SET,github_domain,GitHub
 
   # Google含YouTube
   - RULE-SET,google_domain,Google
