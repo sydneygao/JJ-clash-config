@@ -93,12 +93,15 @@ proxy-groups:
     type: select
     proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png'
+  - name: GitHub
+    type: select
+    proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择, DIRECT]
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png'
 
   - name: Social
     type: select
     proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png'
-    
   - name: Microsoft
     type: select
     proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择]
@@ -126,7 +129,6 @@ proxy-groups:
     type: select
     proxies: [默认代理, REJECT, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Lock.png'
-    
   - name: 漏网之鱼
     type: select
     proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择, DIRECT]
@@ -223,7 +225,6 @@ proxy-groups:
     interval: 600
     tolerance: 30
     lazy: true
-    hidden: true
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Round_Robin.png'
 
   - name: 手动选择
@@ -394,6 +395,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
     path: ./rules/cn.mrs
     interval: 86400
+    
   private_ip:
     type: http
     behavior: ipcidr
@@ -409,6 +411,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'
     path: ./rules/cn_ip.mrs
     interval: 86400
+    
   google_ip:
     type: http
     behavior: ipcidr
@@ -424,6 +427,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs'
     path: ./rules/telegram_ip.mrs
     interval: 86400
+    
   netflix_ip:
     type: http
     behavior: ipcidr
@@ -439,6 +443,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/twitter.mrs'
     path: ./rules/twitter_ip.mrs
     interval: 86400
+    
   apple_ip:
     type: http
     behavior: ipcidr
