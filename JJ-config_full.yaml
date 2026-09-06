@@ -1,6 +1,6 @@
 # Clash / Hako 配置
 # 依据 Clash Hako 官方配置最佳实践与字段参考整理
-# 更新日期：2026-09-02
+# 更新日期：2026-09-06
 #
 # 使用前请将 Airport1.url 替换为你信任的 Clash / mihomo 订阅地址。
 # 不要把含有 Token、用户名或密码的真实订阅地址提交到公开仓库。
@@ -16,7 +16,6 @@ tcp-concurrent: true
 profile:
   store-selected: true
   store-fake-ip: true
-
 # DNS
 # Hako 会在 Apple Packet Tunnel 内管理 DNS 与 TUN；无需配置监听端口或 dns-hijack。
 dns:
@@ -35,7 +34,6 @@ dns:
   nameserver:
     - 223.5.5.5
     - 119.29.29.29
-
   # 以下域名返回真实 IP，不分配 Fake IP
   fake-ip-filter:
     - '+.lan'
@@ -62,7 +60,6 @@ dns:
     # Microsoft 网络连通性检测
     - '*.msftncsi.com'
     - '*.msftconnecttest.com'
-
 # 远程代理集
 proxy-providers:
   Airport1:
@@ -83,9 +80,13 @@ proxy-groups:
     type: select
     proxies:
       - 香港节点
+      - 香港手动
       - 日本节点
+      - 日本手动
       - 新加坡节点
+      - 新加坡手动
       - 美国节点
+      - 美国手动
       - 自动选择
       - 手动选择
       - DIRECT
@@ -93,64 +94,59 @@ proxy-groups:
 
   - name: Google
     type: select
-    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png'
-
   - name: Ai
     type: select
-    proxies: [美国节点, 默认代理, 香港节点, 日本节点, 新加坡节点, 自动选择, 手动选择, DIRECT]
+    proxies: [美国节点, 美国手动, 默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'
 
   - name: Apple
     type: select
-    proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择]
+    proxies: [DIRECT, 默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png'
-
   - name: GitHub
     type: select
-    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png'
 
   - name: Social
     type: select
-    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png'
-
   - name: Microsoft
     type: select
-    proxies: [DIRECT, 默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择]
+    proxies: [DIRECT, 默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows.png'
 
   - name: Games
     type: select
-    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png'
-
   - name: NETFLIX
     type: select
-    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png'
 
   - name: Spotify
     type: select
-    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png'
-
   - name: PayPal
     type: select
-    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/Paypal.png'
 
   - name: Shield
     type: select
-    proxies: [默认代理, REJECT, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, REJECT, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Lock.png'
-
   - name: 漏网之鱼
     type: select
-    proxies: [默认代理, 香港节点, 日本节点, 新加坡节点, 美国节点, 自动选择, 手动选择, DIRECT]
+    proxies: [默认代理, 香港节点, 香港手动, 日本节点, 日本手动, 新加坡节点, 新加坡手动, 美国节点, 美国手动, 自动选择, 手动选择, DIRECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png'
 
+  # 港 / 日 / 新 / 美：自动测速组（隐藏），供上层策略组调用
   - name: 香港节点
     type: url-test
     use: [Airport1]
@@ -159,6 +155,7 @@ proxy-groups:
     interval: 600
     tolerance: 20
     lazy: true
+    hidden: true
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png'
 
   - name: 日本节点
@@ -169,6 +166,7 @@ proxy-groups:
     interval: 600
     tolerance: 20
     lazy: true
+    hidden: true
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png'
 
   - name: 新加坡节点
@@ -179,6 +177,7 @@ proxy-groups:
     interval: 600
     tolerance: 20
     lazy: true
+    hidden: true
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png'
 
   - name: 美国节点
@@ -189,6 +188,36 @@ proxy-groups:
     interval: 600
     tolerance: 20
     lazy: true
+    hidden: true
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png'
+
+  # 港 / 日 / 新 / 美：区域手动选择组（显示）
+  - name: 香港手动
+    type: select
+    use: [Airport1]
+    filter: '(?i)(?:香港|港|HK|HKG|Hong[\s_-]*Kong)'
+    hidden: false
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png'
+
+  - name: 日本手动
+    type: select
+    use: [Airport1]
+    filter: '(?i)(?:日本|日|JP|JPN|Japan)'
+    hidden: false
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png'
+
+  - name: 新加坡手动
+    type: select
+    use: [Airport1]
+    filter: '(?i)(?:新加坡|新|SG|SGP|Singapore)'
+    hidden: false
+    icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png'
+
+  - name: 美国手动
+    type: select
+    use: [Airport1]
+    filter: '(?i)(?:美国|美|United\s*States|UnitedStates|\bUS\b|\bUSA\b)'
+    hidden: false
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png'
 
   - name: 自动选择
@@ -204,6 +233,7 @@ proxy-groups:
   - name: 手动选择
     type: select
     use: [Airport1]
+    hidden: false
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png'
 
 # 远程规则集
@@ -223,7 +253,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs'
     path: ./rules/ai.mrs
     interval: 86400
-
   google_domain:
     type: http
     behavior: domain
@@ -239,7 +268,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs'
     path: ./rules/github.mrs
     interval: 86400
-
   spotify_domain:
     type: http
     behavior: domain
@@ -255,7 +283,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs'
     path: ./rules/telegram.mrs
     interval: 86400
-
   netflix_domain:
     type: http
     behavior: domain
@@ -271,7 +298,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs'
     path: ./rules/paypal.mrs
     interval: 86400
-
   whatsapp_domain:
     type: http
     behavior: domain
@@ -287,7 +313,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs'
     path: ./rules/facebook.mrs
     interval: 86400
-
   instagram_domain:
     type: http
     behavior: domain
@@ -303,7 +328,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/snap.mrs'
     path: ./rules/snapchat.mrs
     interval: 86400
-
   twitter_domain:
     type: http
     behavior: domain
@@ -319,7 +343,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs'
     path: ./rules/discord.mrs
     interval: 86400
-
   microsoft_domain:
     type: http
     behavior: domain
@@ -335,7 +358,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs'
     path: ./rules/apple.mrs
     interval: 86400
-
   porn_domain:
     type: http
     behavior: domain
@@ -351,7 +373,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games-!cn.mrs'
     path: ./rules/games.mrs
     interval: 86400
-
   geolocation-!cn:
     type: http
     behavior: domain
@@ -367,7 +388,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
     path: ./rules/cn.mrs
     interval: 86400
-
   private_ip:
     type: http
     behavior: ipcidr
@@ -383,7 +403,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'
     path: ./rules/cn_ip.mrs
     interval: 86400
-
   google_ip:
     type: http
     behavior: ipcidr
@@ -399,7 +418,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs'
     path: ./rules/telegram_ip.mrs
     interval: 86400
-
   netflix_ip:
     type: http
     behavior: ipcidr
@@ -415,7 +433,6 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/twitter.mrs'
     path: ./rules/twitter_ip.mrs
     interval: 86400
-
   apple_ip:
     type: http
     behavior: ipcidr
@@ -429,7 +446,6 @@ rules:
   # 局域网规则
   - RULE-SET,private_domain,DIRECT
   - RULE-SET,private_ip,DIRECT,no-resolve
-
   # 自定义前置规则
   - DOMAIN-SUFFIX,unpkg.com,DIRECT
   - DOMAIN-SUFFIX,jsdelivr.net,DIRECT
@@ -442,12 +458,11 @@ rules:
   - DOMAIN-SUFFIX,overcast.fm,默认代理 # overcast
   - DOMAIN-SUFFIX,overcast-cdn.com,默认代理 # overcast
   - DOMAIN-SUFFIX,jpush.cn,默认代理
-  
+
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
   - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
   - IP-ASN,399358,Ai,no-resolve # Claude
-
   # Github
   - RULE-SET,github_domain,GitHub
 
@@ -468,7 +483,6 @@ rules:
 
   # Apple
   - RULE-SET,apple_domain,Apple
-
   # 媒体
   - RULE-SET,spotify_domain,Spotify
   - RULE-SET,netflix_domain,NETFLIX
@@ -481,20 +495,18 @@ rules:
   - RULE-SET,games_domain,Games
   - DOMAIN-SUFFIX,2ksports.com,Games
   - DOMAIN-SUFFIX,marketingcloudapis.com,Games
-  
+
   # 支付
   - RULE-SET,paypal_domain,PayPal
-
   # 国内域名
   - RULE-SET,cn_domain,DIRECT
-  
+
   # IP规则后置
   - RULE-SET,telegram_ip,Social,no-resolve
   - RULE-SET,twitter_ip,Social,no-resolve
   - RULE-SET,apple_ip,Apple,no-resolve
   - RULE-SET,google_ip,Google,no-resolve
   - RULE-SET,netflix_ip,NETFLIX,no-resolve
-
   # ASN规则
   # Games ASN (ChatGPT定期自检netify.ai)
   - IP-ASN,395856,Games,no-resolve # 2K Games
@@ -512,7 +524,6 @@ rules:
   - IP-ASN,62014,Social,no-resolve
   - IP-ASN,62041,Social,no-resolve
   - IP-ASN,211157,Social,no-resolve
-
   # 海外兜底
   - RULE-SET,geolocation-!cn,默认代理 #非国内区域
   - RULE-SET,cn_ip,DIRECT,no-resolve
