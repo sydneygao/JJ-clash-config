@@ -446,6 +446,7 @@ rules:
   # 局域网规则
   - RULE-SET,private_domain,DIRECT
   - RULE-SET,private_ip,DIRECT,no-resolve
+  
   # 自定义前置规则
   - DOMAIN-SUFFIX,unpkg.com,DIRECT
   - DOMAIN-SUFFIX,jsdelivr.net,DIRECT
@@ -463,6 +464,7 @@ rules:
   - RULE-SET,ai_domain,Ai
   - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
   - IP-ASN,399358,Ai,no-resolve # Claude
+  
   # Github
   - RULE-SET,github_domain,GitHub
 
@@ -483,6 +485,7 @@ rules:
 
   # Apple
   - RULE-SET,apple_domain,Apple
+  
   # 媒体
   - RULE-SET,spotify_domain,Spotify
   - RULE-SET,netflix_domain,NETFLIX
@@ -498,6 +501,7 @@ rules:
 
   # 支付
   - RULE-SET,paypal_domain,PayPal
+  
   # 国内域名
   - RULE-SET,cn_domain,DIRECT
 
@@ -507,6 +511,7 @@ rules:
   - RULE-SET,apple_ip,Apple,no-resolve
   - RULE-SET,google_ip,Google,no-resolve
   - RULE-SET,netflix_ip,NETFLIX,no-resolve
+  
   # ASN规则
   # Games ASN (ChatGPT定期自检netify.ai)
   - IP-ASN,395856,Games,no-resolve # 2K Games
@@ -518,6 +523,7 @@ rules:
   - IP-ASN,152877,Games,no-resolve # Nintendo Japan
   - IP-ASN,22697,Games,no-resolve # Roblox
   - IP-ASN,11281,Games,no-resolve # Roblox Corporate
+  
   # > Telegram ASN (定期按 https://cdn.jsdelivr.net/gh/budaobu/rules@main/lists/telegram_asn.list 更新)
   - IP-ASN,44907,Social,no-resolve
   - IP-ASN,59930,Social,no-resolve
