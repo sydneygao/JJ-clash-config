@@ -232,6 +232,7 @@ proxy-groups:
     interval: 600
     tolerance: 30
     lazy: true
+    hidden: true
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Round_Robin.png'
 
   - name: 手动选择
