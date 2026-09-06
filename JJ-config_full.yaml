@@ -110,11 +110,6 @@ proxy-groups:
     proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png'
 
-  - name: GitHub
-    type: select
-    proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择, DIRECT]
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png'
-
   - name: Social
     type: select
     proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 美国自动, 美国手动, 自动选择, 手动选择, DIRECT]
@@ -481,14 +476,12 @@ rules:
   - DOMAIN-SUFFIX,overcast.fm,默认代理 # overcast
   - DOMAIN-SUFFIX,overcast-cdn.com,默认代理 # overcast
   - DOMAIN-SUFFIX,jpush.cn,默认代理
+  - RULE-SET,github_domain,默认代理 # Github
 
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
   - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
   - IP-ASN,399358,Ai,no-resolve # Claude
-
-  # Github
-  - RULE-SET,github_domain,GitHub
 
   # Google含YouTube
   - RULE-SET,google_domain,Google
