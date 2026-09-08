@@ -476,6 +476,31 @@ rules:
   - RULE-SET,ai_domain,Ai
   - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
   - IP-ASN,399358,Ai,no-resolve # Claude
+  # ============================================================
+  # AI 补充域名规则，来源clash.md官方配置模版 service-single-provider.yaml
+  # 用于补充 MetaCubeX category-ai-!cn.mrs 尚未覆盖的域名
+  # ============================================================
+  # -------------------- ChatGPT / OpenAI --------------------
+  - DOMAIN,cdn.openaimerge.com,Ai                         # ChatGPT / OpenAI
+  - DOMAIN,cdn.workos.com,Ai                              # ChatGPT / OpenAI
+  - DOMAIN,forwarder.workos.com,Ai                        # ChatGPT / OpenAI
+  - DOMAIN,images.workoscdn.com,Ai                        # ChatGPT / OpenAI
+  - DOMAIN,workos.imgix.net,Ai                            # ChatGPT / OpenAI
+  - DOMAIN,setup.workos.com,Ai                            # ChatGPT / OpenAI
+  - DOMAIN-SUFFIX,ct.sendgrid.net,Ai                      # ChatGPT / OpenAI
+  - DOMAIN-SUFFIX,intercom.io,Ai                          # ChatGPT / OpenAI
+  - DOMAIN-SUFFIX,intercomcdn.com,Ai                      # ChatGPT / OpenAI
+  - DOMAIN,js.stripe.com,Ai                               # ChatGPT / OpenAI
+  - DOMAIN,o207216.ingest.sentry.io,Ai                    # ChatGPT / OpenAI
+  - DOMAIN,rum.browser-intake-datadoghq.com,Ai            # ChatGPT / OpenAI
+  - DOMAIN,challenges.cloudflare.com,Ai                   # ChatGPT / OpenAI
+  # -------------------- Gemini / Google AI --------------------
+  - DOMAIN-SUFFIX,gemini.googleusercontent.com,Ai         # Gemini
+  # -------------------- Claude / Anthropic --------------------
+  - DOMAIN-SUFFIX,claudeusercontent.com.cdn.cloudflare.net,Ai  # Claude
+  # -------------------- Microsoft Copilot --------------------
+  - DOMAIN-SUFFIX,ai.microsoft.com,Ai                     # Microsoft Copilot
+  - DOMAIN-SUFFIX,designer.microsoft.com,Ai               # Microsoft Copilot
 
   # Google含YouTube
   - RULE-SET,google_domain,Google
