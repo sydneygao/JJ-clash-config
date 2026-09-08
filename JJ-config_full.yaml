@@ -40,6 +40,10 @@ dns:
     - '+.stun.*.*.*'
     - '+.stun.*.*.*.*'
     - '+.stun.*.*.*.*.*'
+   
+    # Apple
+    - 'captive.apple.com'
+    - '*.push.apple.com'
 
     # Google Lens / Voice
     - 'lens.l.google.com'
@@ -57,6 +61,7 @@ dns:
     # Microsoft 网络连通性检测
     - '*.msftncsi.com'
     - '*.msftconnecttest.com'
+    - '*.msidentity.com'
     
 # 记住手动选择和 Fake IP 映射
 profile:
