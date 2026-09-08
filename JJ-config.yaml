@@ -12,10 +12,6 @@ ipv6: false
 unified-delay: true
 tcp-concurrent: true
 
-# 记住手动选择和 Fake IP 映射
-profile:
-  store-selected: true
-  store-fake-ip: true
 # DNS
 # Hako 会在 Apple Packet Tunnel 内管理 DNS 与 TUN；无需配置监听端口或 dns-hijack。
 dns:
@@ -43,6 +39,10 @@ dns:
     - '+.stun.*.*.*'
     - '+.stun.*.*.*.*'
     - '+.stun.*.*.*.*.*'
+    
+    # Apple
+    - 'captive.apple.com'
+    - '*.push.apple.com'
 
     # Google Lens / Voice
     - 'lens.l.google.com'
@@ -60,6 +60,14 @@ dns:
     # Microsoft 网络连通性检测
     - '*.msftncsi.com'
     - '*.msftconnecttest.com'
+    - '*.msidentity.com'
+    
+# 记住手动选择和 Fake IP 映射
+profile:
+  # 保存策略组选择
+  store-selected: true
+  # 保存 Fake-IP 映射
+  store-fake-ip: true
 
 # 策略组
 proxy-groups:
