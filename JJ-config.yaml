@@ -483,7 +483,6 @@ rules:
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
   - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
-  - IP-ASN,399358,Ai,no-resolve # Claude
   # ============================================================
   # AI 补充域名规则，来源clash.md官方配置模版 service-single-provider.yaml
   # 用于补充 MetaCubeX category-ai-!cn.mrs 尚未覆盖的域名
@@ -553,25 +552,49 @@ rules:
   - RULE-SET,apple_ip,Apple,no-resolve
   - RULE-SET,google_ip,Google,no-resolve
   - RULE-SET,netflix_ip,NETFLIX,no-resolve
-  
-  # ASN规则
-  # Games ASN (ChatGPT定期自检netify.ai)
-  - IP-ASN,395856,Games,no-resolve # 2K Games
-  - IP-ASN,394977,Games,no-resolve # Take-Two
-  - IP-ASN,46555,Games,no-resolve # Take-Two
-  - IP-ASN,32590,Games,no-resolve # Valve / Steam
-  - IP-ASN,33353,Games,no-resolve # PlayStation
-  - IP-ASN,11278,Games,no-resolve # Nintendo of America
-  - IP-ASN,152877,Games,no-resolve # Nintendo Japan
-  - IP-ASN,22697,Games,no-resolve # Roblox
-  - IP-ASN,11281,Games,no-resolve # Roblox Corporate
-  
-  # > Telegram ASN (定期按 https://cdn.jsdelivr.net/gh/budaobu/rules@main/lists/telegram_asn.list 更新)
-  - IP-ASN,44907,Social,no-resolve
-  - IP-ASN,59930,Social,no-resolve
-  - IP-ASN,62014,Social,no-resolve
-  - IP-ASN,62041,Social,no-resolve
-  - IP-ASN,211157,Social,no-resolve
+
+  # ============================================================
+  # ASN 补充规则  (ChatGPT定期自检netify.ai)
+  # 仅使用厂商/服务专属度较高的 ASN
+  # 避免 Cloudflare / AWS / Azure / Google 等共享基础设施 ASN
+  # ============================================================
+  # -------------------- Claude / Anthropic --------------------
+  - IP-ASN,399358,Ai,no-resolve                          # Claude
+  # -------------------- WhatsApp --------------------
+  - IP-ASN,11917,Social,no-resolve                       # WhatsApp
+  # -------------------- Snapchat --------------------
+  - IP-ASN,395291,Social,no-resolve                      # Snapchat
+  # -------------------- Meta --------------------
+  - IP-ASN,32934,Social,no-resolve                       # Facebook / Instagram / WhatsApp
+  # -------------------- GitHub --------------------
+  - IP-ASN,36459,默认代理,no-resolve                     # GitHub
+  # -------------------- PayPal --------------------
+  - IP-ASN,1449,PayPal,no-resolve                        # PayPal
+  - IP-ASN,17012,PayPal,no-resolve                       # PayPal
+  - IP-ASN,26444,PayPal,no-resolve                       # PayPal
+  - IP-ASN,395313,PayPal,no-resolve                      # PayPal
+  # -------------------- 2K Games --------------------
+  - IP-ASN,395856,Games,no-resolve                       # 2K Games
+  # -------------------- Take-Two Interactive --------------------
+  - IP-ASN,46555,Games,no-resolve                        # Take-Two
+  - IP-ASN,394977,Games,no-resolve                       # Take-Two
+  # -------------------- Steam / Valve --------------------
+  - IP-ASN,32590,Games,no-resolve                        # Valve / Steam
+  # -------------------- PlayStation / Sony --------------------
+  - IP-ASN,33353,Games,no-resolve                        # PlayStation
+  # -------------------- Nintendo --------------------
+  - IP-ASN,11278,Games,no-resolve                        # Nintendo of America
+  - IP-ASN,152877,Games,no-resolve                       # Nintendo Japan
+  # -------------------- Roblox --------------------
+  - IP-ASN,22697,Games,no-resolve                        # Roblox
+  - IP-ASN,11281,Games,no-resolve                        # Roblox
+  # -------------------- Telegram --------------------
+  # 定期按 https://cdn.jsdelivr.net/gh/budaobu/rules@main/lists/telegram_asn.list更新
+  - IP-ASN,44907,Social,no-resolve                       # Telegram
+  - IP-ASN,59930,Social,no-resolve                       # Telegram
+  - IP-ASN,62014,Social,no-resolve                       # Telegram
+  - IP-ASN,62041,Social,no-resolve                       # Telegram
+  - IP-ASN,211157,Social,no-resolve                      # Telegram
   
   # 海外兜底
   - RULE-SET,geolocation-!cn,默认代理 #非国内区域
