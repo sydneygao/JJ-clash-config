@@ -33,11 +33,16 @@ dns:
   fake-ip-filter:
     - '+.lan'
     - '+.local'
-    - '+.market.xiaomi.com'
     - '+.stun.*.*'
     - '+.stun.*.*.*'
     - '+.stun.*.*.*.*'
     - '+.stun.*.*.*.*.*'
+
+    # 小米
+    - '+.mi.com'
+    - '+.xiaomi.com'
+    - '+.xiaomi.net'
+    - '+.miui.com'
 
     # Apple
     - 'captive.apple.com'
