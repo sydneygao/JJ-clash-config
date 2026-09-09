@@ -1,7 +1,7 @@
 # Clash / Hako 配置
 # 依据官方规则编制 参考 https://Clash.md
 # 更新日期：2026-09-09
-#
+# 配置下载地址：https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config_full.yaml
 # 使用前请将 Airport1.url 替换为你信任的 Clash / mihomo 订阅地址。
 # 不要把含有 Token、用户名或密码的真实订阅地址提交到公开仓库。
 
