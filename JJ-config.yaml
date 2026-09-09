@@ -1,6 +1,6 @@
 # Clash / Hako 配置
-# 依据官方规则编制 参考 https://Clash.md
-# 更新日期：2026-09-09
+# 依据 Clash Hako 官方配置最佳实践与字段参考整理
+# 更新日期：2026-09-06
 # 配置下载地址：https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config.yaml
 # 本版本不内置代理订阅，请与 Hako 中现有的节点配置合并使用。
 # 节点策略组通过 include-all 自动接收合并后的节点。
@@ -90,41 +90,46 @@ proxy-groups:
     type: select
     proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, DIRECT, REJECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png'
-
-  - name: Ai
-    type: select
-    # select 组没有 default 字段；首项即首次使用时的默认项
-    proxies: [台湾手动, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 美国自动, 美国手动, 手动选择, DIRECT, REJECT]
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'
+    
   - name: Apple
     type: select
     proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, REJECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_2.png'
-  - name: GitHub
-    <<: *PR
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png'
-  - name: Social
-    <<: *PR
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png'
+
   - name: Microsoft
     type: select
     proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, REJECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows.png'
+
+  - name: Ai
+    type: select
+    <<: *PR
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'
+    
+  - name: Social
+    <<: *PR
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png'
+
   - name: Games
     <<: *PR
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png'
+    
   - name: NETFLIX
     <<: *PR
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png'
+    
   - name: Spotify
     <<: *PR
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png'
+    
   - name: PayPal
     <<: *PR
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/Paypal.png'
+    
   - name: Shield
     <<: *PR
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Lock.png'
+    
   - name: 漏网之鱼
     <<: *PR
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png'
@@ -141,6 +146,7 @@ proxy-groups:
     lazy: true
     hidden: true
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png'
+    
   - name: 日本自动
     type: url-test
     include-all: true
@@ -152,6 +158,7 @@ proxy-groups:
     lazy: true
     hidden: true
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png'
+    
   - name: 新加坡自动
     type: url-test
     include-all: true
@@ -163,6 +170,7 @@ proxy-groups:
     lazy: true
     hidden: true
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png'
+    
   - name: 台湾自动
     type: url-test
     include-all: true
@@ -174,6 +182,7 @@ proxy-groups:
     lazy: true
     hidden: true
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png'
+    
   - name: 美国自动
     type: url-test
     include-all: true
@@ -202,6 +211,7 @@ proxy-groups:
     filter: '(?i)(?:日本|日|JP|JPN|Japan)'
     hidden: false
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png'
+    
   - name: 新加坡手动
     type: select
     include-all: true
@@ -225,6 +235,7 @@ proxy-groups:
     filter: '(?i)(?:美国|美|United\s*States|UnitedStates|\bUS\b|\bUSA\b)'
     hidden: false
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png'
+    
   - name: 手动选择
     type: select
     include-all: true
@@ -248,6 +259,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs'
     path: ./rules/ai.mrs
     interval: 86400
+    
   google_domain:
     type: http
     behavior: domain
@@ -263,6 +275,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs'
     path: ./rules/github.mrs
     interval: 86400
+    
   spotify_domain:
     type: http
     behavior: domain
@@ -278,6 +291,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs'
     path: ./rules/telegram.mrs
     interval: 86400
+    
   netflix_domain:
     type: http
     behavior: domain
@@ -293,6 +307,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs'
     path: ./rules/paypal.mrs
     interval: 86400
+    
   whatsapp_domain:
     type: http
     behavior: domain
@@ -308,6 +323,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs'
     path: ./rules/facebook.mrs
     interval: 86400
+    
   instagram_domain:
     type: http
     behavior: domain
@@ -323,6 +339,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/snap.mrs'
     path: ./rules/snapchat.mrs
     interval: 86400
+    
   twitter_domain:
     type: http
     behavior: domain
@@ -338,6 +355,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs'
     path: ./rules/discord.mrs
     interval: 86400
+    
   microsoft_domain:
     type: http
     behavior: domain
@@ -353,6 +371,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs'
     path: ./rules/apple.mrs
     interval: 86400
+    
   porn_domain:
     type: http
     behavior: domain
@@ -368,6 +387,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games-!cn.mrs'
     path: ./rules/games.mrs
     interval: 86400
+    
   geolocation-!cn:
     type: http
     behavior: domain
@@ -383,6 +403,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'
     path: ./rules/cn.mrs
     interval: 86400
+    
   private_ip:
     type: http
     behavior: ipcidr
@@ -398,6 +419,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'
     path: ./rules/cn_ip.mrs
     interval: 86400
+    
   google_ip:
     type: http
     behavior: ipcidr
@@ -413,6 +435,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs'
     path: ./rules/telegram_ip.mrs
     interval: 86400
+    
   netflix_ip:
     type: http
     behavior: ipcidr
@@ -428,6 +451,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/twitter.mrs'
     path: ./rules/twitter_ip.mrs
     interval: 86400
+    
   apple_ip:
     type: http
     behavior: ipcidr
@@ -435,6 +459,7 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs'
     path: ./rules/apple_ip.mrs
     interval: 86400
+    
 # 分流规则
 rules:
   # 局域网规则
@@ -454,9 +479,11 @@ rules:
   - DOMAIN-SUFFIX,overcast-cdn.com,默认代理 # overcast
   - DOMAIN-SUFFIX,jpush.cn,默认代理
   - RULE-SET,github_domain,默认代理 # Github
+  
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
   - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
+  
   # AI 补充域名规则，来源clash.md官方配置模版 service-single-provider.yaml
   # 用于补充 MetaCubeX category-ai-!cn.mrs 尚未覆盖的域名
   # ChatGPT / OpenAI
