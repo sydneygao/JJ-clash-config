@@ -1,6 +1,6 @@
 # Clash / Hako 配置
-# 依据 Clash Hako 官方配置最佳实践与字段参考整理
-# 更新日期：2026-09-06
+# 依据官方规则编制 参考 https://Clash.md
+# 更新日期：2026-09-09
 # 配置下载地址：https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config.yaml
 # 本版本不内置代理订阅，请与 Hako 中现有的节点配置合并使用。
 # 节点策略组通过 include-all 自动接收合并后的节点。
