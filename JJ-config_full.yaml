@@ -106,11 +106,6 @@ proxy-groups:
     proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, DIRECT, REJECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png'
 
-  - name: Ai
-    type: select
-    proxies: [台湾手动, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 美国自动, 美国手动, 手动选择, DIRECT, REJECT]
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'
-
   - name: Apple
     type: select
     proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, REJECT]
@@ -120,7 +115,11 @@ proxy-groups:
     type: select
     proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, REJECT]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows.png'
-
+ 
+  - name: Ai
+    <<: *PR
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png'
+    
   - name: Social
     <<: *PR
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png'
