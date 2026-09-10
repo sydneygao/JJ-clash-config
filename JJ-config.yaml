@@ -44,10 +44,6 @@ dns:
     - '+.xiaomi.net'
     - '+.miui.com'
 
-    # Apple
-    - 'captive.apple.com'
-    - '*.push.apple.com'
-
     # Google Lens / Voice
     - 'lens.l.google.com'
 
@@ -62,7 +58,6 @@ dns:
     # Microsoft 网络连通性检测
     - '*.msftncsi.com'
     - '*.msftconnecttest.com'
-    - '*.msidentity.com'
 
 # 记住手动选择和 Fake IP 映射
 profile:
@@ -70,6 +65,7 @@ profile:
   store-selected: true
   # 保存 Fake-IP 映射
   store-fake-ip: true
+  
 # 策略组
 proxy-groups:
   - name: 默认代理
