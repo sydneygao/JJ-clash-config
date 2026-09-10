@@ -44,10 +44,6 @@ dns:
     - '+.xiaomi.net'
     - '+.miui.com'
 
-    # Apple
-    - 'captive.apple.com'
-    - '*.push.apple.com'
-
     # Google Lens / Voice
     - 'lens.l.google.com'
 
@@ -56,13 +52,14 @@ dns:
 
     # PlayStation
     - '+.stun.playstation.net'
+    
     # Xbox
     - 'xbox.*.*.microsoft.com'
     - '*.*.xboxlive.com'
+    
     # Microsoft 网络连通性检测
     - '*.msftncsi.com'
     - '*.msftconnecttest.com'
-    - '*.msidentity.com'
 
 # 记住手动选择和 Fake IP 映射
 profile:
@@ -488,12 +485,14 @@ rules:
   - DOMAIN-SUFFIX,overcast-cdn.com,默认代理 # overcast
   - DOMAIN-SUFFIX,jpush.cn,默认代理
   - RULE-SET,github_domain,默认代理 # Github
+  
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
-  - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
+  
   # AI 补充域名规则，来源clash.md官方配置模版 service-single-provider.yaml
   # 用于补充 MetaCubeX category-ai-!cn.mrs 尚未覆盖的域名
   # ChatGPT / OpenAI
+  - DOMAIN-SUFFIX,searchgpt.com,Ai
   - DOMAIN,cdn.openaimerge.com,Ai
   - DOMAIN,cdn.workos.com,Ai
   - DOMAIN,forwarder.workos.com,Ai
