@@ -243,6 +243,7 @@ proxy-groups:
     exclude-filter: '(?:流量|时间|到期)'
     hidden: false
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png'
+    
 # 远程规则集
 rule-providers:
   private_domain:
@@ -483,11 +484,11 @@ rules:
   
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
-  - DOMAIN-SUFFIX,searchgpt.com,Ai # ChatGPT
   
   # AI 补充域名规则，来源clash.md官方配置模版 service-single-provider.yaml
   # 用于补充 MetaCubeX category-ai-!cn.mrs 尚未覆盖的域名
   # ChatGPT / OpenAI
+  - DOMAIN-SUFFIX,searchgpt.com,Ai
   - DOMAIN,cdn.openaimerge.com,Ai
   - DOMAIN,cdn.workos.com,Ai
   - DOMAIN,forwarder.workos.com,Ai
