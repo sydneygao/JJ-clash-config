@@ -469,6 +469,7 @@ rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
 
   # 自定义前置规则
+  - DOMAIN-SUFFIX,ztna-dingtalk.com,DIRECT
   - DOMAIN-SUFFIX,unpkg.com,DIRECT
   - DOMAIN-SUFFIX,jsdelivr.net,DIRECT
   - DOMAIN-SUFFIX,xhscdn.com,DIRECT
