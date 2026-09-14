@@ -494,7 +494,6 @@ rules:
   # 媒体
   - RULE-SET,spotify_domain,Spotify
   - RULE-SET,netflix_domain,NETFLIX
-  - RULE-SET,bilibili_domain,Bilibili
   
   # 儿童保护
   - RULE-SET,porn_domain,Shield
