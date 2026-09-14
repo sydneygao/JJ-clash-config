@@ -70,19 +70,7 @@ profile:
 proxy-groups:
   - name: 默认代理
     type: select
-    proxies:
-      - 香港自动
-      - 香港手动
-      - 日本自动
-      - 日本手动
-      - 新加坡自动
-      - 新加坡手动
-      - 台湾自动
-      - 台湾手动
-      - 美国自动
-      - 美国手动
-      - 手动选择
-      - DIRECT
+    proxies: [香港自动, 台湾自动, 日本自动, 新加坡自动, 美国自动, 手动选择]
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png'
 
   # 通用代理策略锚点 PR：普通服务组复用同一候选列表
