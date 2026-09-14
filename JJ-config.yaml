@@ -1,6 +1,6 @@
 # Clash / Hako 配置
 # 依据官方规则编制 参考 https://Clash.md
-# 更新日期：2026-09-10
+# 更新日期：2026-09-14
 # 配置下载地址：https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config.yaml
 # 本版本不内置代理订阅，请与 Hako 中现有的节点配置合并使用。
 # 节点策略组通过 include-all 自动接收合并后的节点。
@@ -492,14 +492,8 @@ rules:
   - DOMAIN,cdn.openaimerge.com,Ai
   # Gemini / Google AI
   - DOMAIN-SUFFIX,gemini.googleusercontent.com,Ai
-  - DOMAIN,webchannel-robinfrontend-pa.googleapis.com,Ai
-  # Claude / Anthropic
-  - DOMAIN-SUFFIX,claudeusercontent.com,Ai
   # Microsoft Copilot
-  - DOMAIN-SUFFIX,copilot.cloud.microsoft,Ai
-  - DOMAIN-SUFFIX,copilot.microsoft.com,Ai
   - DOMAIN-SUFFIX,copilotstudio.microsoft.com,Ai
-  - DOMAIN,m365.cloud.microsoft,Ai
   # Google含YouTube
   - RULE-SET,google_domain,Google
 
@@ -514,6 +508,7 @@ rules:
 
   # 微软
   - RULE-SET,microsoft_domain,Microsoft
+  - DOMAIN,m365.cloud.microsoft,Microsoft
 
   # Apple
   - RULE-SET,apple_domain,Apple
@@ -527,8 +522,6 @@ rules:
 
   # 游戏
   - RULE-SET,games_domain,Games
-  - DOMAIN-SUFFIX,2ksports.com,Games
-  - DOMAIN-SUFFIX,marketingcloudapis.com,Games
 
   # 支付
   - RULE-SET,paypal_domain,PayPal
@@ -546,8 +539,6 @@ rules:
   # 仅使用厂商/服务专属度较高的 ASN，避免 Cloudflare / AWS / Azure / Google 等共享基础设施 ASN
   # Claude / Anthropic
   - IP-ASN,399358,Ai,no-resolve
-  # WhatsApp
-  - IP-ASN,11917,Social,no-resolve
   # Snapchat
   - IP-ASN,395291,Social,no-resolve
   # Meta Facebook / Instagram / WhatsApp
@@ -557,8 +548,6 @@ rules:
   # PayPal
   - IP-ASN,1449,PayPal,no-resolve
   - IP-ASN,17012,PayPal,no-resolve
-  - IP-ASN,26444,PayPal,no-resolve
-  - IP-ASN,395313,PayPal,no-resolve
   # 2K Games
   - IP-ASN,395856,Games,no-resolve
   # Take-Two Interactive
@@ -577,12 +566,6 @@ rules:
   - IP-ASN,22697,Games,no-resolve
   - IP-ASN,11281,Games,no-resolve
   # Telegram
-  # 定期按 https://cdn.jsdelivr.net/gh/budaobu/rules@main/lists/telegram_asn.list 更新，并与 Netify/BGP 交叉验证
-  - IP-ASN,44907,Social,no-resolve
-  - IP-ASN,59930,Social,no-resolve
-  - IP-ASN,62014,Social,no-resolve
-  - IP-ASN,62041,Social,no-resolve
-  - IP-ASN,211157,Social,no-resolve
   # 海外兜底
   - RULE-SET,geolocation-!cn,默认代理 # 非国内区域
   - RULE-SET,cn_ip,DIRECT,no-resolve
