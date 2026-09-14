@@ -520,6 +520,7 @@ rules:
 
   # 国内域名
   - RULE-SET,cn_domain,DIRECT
+  
   # IP规则后置
   - RULE-SET,telegram_ip,Social,no-resolve
   - RULE-SET,twitter_ip,Social,no-resolve
@@ -529,6 +530,8 @@ rules:
 
   # ASN 补充规则（四源验证：Netify + BGP/IPinfo + 官方/上游规则集 + 当前配置交叉检查）
   # 仅使用厂商/服务专属度较高的 ASN，避免 Cloudflare / AWS / Azure / Google 等共享基础设施 ASN
+  # Bilibili
+  - IP-ASN,140633,Bilibili,no-resolve
   # Claude / Anthropic
   - IP-ASN,399358,Ai,no-resolve
   # Snapchat
