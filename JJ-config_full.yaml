@@ -473,20 +473,7 @@ rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
 
   # 自定义前置规则
-  - DOMAIN-SUFFIX,ztna-dingtalk.com,DIRECT
-  - DOMAIN-SUFFIX,unpkg.com,DIRECT
-  - DOMAIN-SUFFIX,jsdelivr.net,DIRECT
-  - DOMAIN-SUFFIX,xhscdn.com,DIRECT
-  - DOMAIN-SUFFIX,theradioapp.com,DIRECT # TheRadioApp
-  - DOMAIN-SUFFIX,streamtheworld.com,DIRECT # TheRadioApp
-  - DOMAIN-SUFFIX,clashmi.app,默认代理
-  - DOMAIN-SUFFIX,clash.md,默认代理
-  - DOMAIN-SUFFIX,stash.wiki,默认代理
-  - DOMAIN-SUFFIX,overcast.fm,默认代理 # overcast
-  - DOMAIN-SUFFIX,overcast-cdn.com,默认代理 # overcast
-  - DOMAIN-SUFFIX,jpush.cn,默认代理
-  - RULE-SET,github_domain,默认代理 # Github
-  
+ 
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
   
@@ -516,10 +503,14 @@ rules:
 
   # Apple
   - RULE-SET,apple_domain,Apple
+  
+  # Github 
+  - RULE-SET,github_domain,默认代理
 
   # 媒体
   - RULE-SET,spotify_domain,Spotify
   - RULE-SET,netflix_domain,NETFLIX
+  
   # 儿童保护
   - RULE-SET,porn_domain,Shield
   - DOMAIN-SUFFIX,91porn.com,Shield
@@ -532,6 +523,7 @@ rules:
 
   # 国内域名
   - RULE-SET,cn_domain,DIRECT
+  
   # IP规则后置
   - RULE-SET,telegram_ip,Social,no-resolve
   - RULE-SET,twitter_ip,Social,no-resolve
