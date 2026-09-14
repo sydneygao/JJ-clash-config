@@ -500,6 +500,9 @@ rules:
   # Apple
   - RULE-SET,apple_domain,Apple
 
+  # Github 
+  - RULE-SET,github_domain,默认代理
+
   # 媒体
   - RULE-SET,spotify_domain,Spotify
   - RULE-SET,netflix_domain,NETFLIX
