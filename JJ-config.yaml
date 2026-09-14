@@ -106,10 +106,6 @@ proxy-groups:
   - name: NETFLIX
     <<: *PR
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png'
-
-  - name: Bilibili
-    <<: *PR
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png'
     
   - name: Spotify
     <<: *PR
@@ -276,14 +272,6 @@ rule-providers:
     format: mrs
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs'
     path: ./rules/spotify.mrs
-    interval: 86400
-    
-  bilibili_domain:
-    type: http
-    behavior: domain
-    format: mrs
-    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs'
-    path: ./rules/bilibili.mrs
     interval: 86400
 
   telegram_domain:
@@ -530,8 +518,6 @@ rules:
 
   # ASN 补充规则（四源验证：Netify + BGP/IPinfo + 官方/上游规则集 + 当前配置交叉检查）
   # 仅使用厂商/服务专属度较高的 ASN，避免 Cloudflare / AWS / Azure / Google 等共享基础设施 ASN
-  # Bilibili
-  - IP-ASN,140633,Bilibili,no-resolve
   # Claude / Anthropic
   - IP-ASN,399358,Ai,no-resolve
   # Snapchat
