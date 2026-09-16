@@ -475,6 +475,9 @@ rules:
   - DOMAIN-SUFFIX,copilotstudio.microsoft.com,Ai
   # Google含YouTube
   - RULE-SET,google_domain,Google
+  # Muse.ai / Skiv
+  - DOMAIN-SUFFIX,muse.ai,Ai
+  - DOMAIN-SUFFIX,skiv.com,Ai
 
   # 社交通信
   - RULE-SET,whatsapp_domain,Social
