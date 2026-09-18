@@ -415,7 +415,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: mrs
-    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/twitter.mrs'
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs'
     path: ./rules/twitter_ip.mrs
     interval: 86400
     
