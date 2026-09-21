@@ -79,7 +79,7 @@ proxy-providers:
       enable: true
       url: 'https://www.gstatic.com/generate_204'
       interval: 600
-      timeout:5000
+      timeout: 5000
       lazy: true
       
 # 策略组
