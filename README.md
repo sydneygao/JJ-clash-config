@@ -5,19 +5,21 @@ iOS Clash (Hako) 的配置文件。
 
 ### Step 1. 下载配置文件
 
-**Original link 🔗:**
-
-<img width="150" height="150" alt="JJ-clash-config-full-url-qr" src="https://github.com/user-attachments/assets/7971494d-1a41-4286-b44a-e26f787afbe5" />
-
+**主链路（gh-proxy.org｜最快，≤60 秒更新）：**
 ```text
-https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config_full.yaml
+https://gh-proxy.org/https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config_full.yaml
 ```
-**China acceleration 🚀:**
+
+**备链路（gh.idayer.com｜不同链路，实时）：**
+```text
+https://gh.idayer.com/https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config_full.yaml
+```
+
+<p align="left"><img width="180" alt="JJ-config_full.yaml 主链接二维码" src="./assets/qr/JJ-config_full-primary-mirrors.svg" /> <img width="180" alt="JJ-config_full.yaml 备用链接二维码" src="./assets/qr/JJ-config_full-backup-mirrors.svg" /></p>
+
+**兜底链路（cdn.jsdelivr.net｜最稳，接受最长约 12 小时延迟）：**
 ```text
 https://cdn.jsdelivr.net/gh/sydneygao/JJ-clash-config@main/JJ-config_full.yaml
-```
-```text
-https://git.yylx.win/raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config_full.yaml
 ```
 
 ### Step 2.✈️ 添加机场订阅 
@@ -42,21 +44,23 @@ proxy-providers:
 
 ## 2. `JJ-config.yaml`，不含`proxy-providers`机场订阅信息
 
-### Step 1. Clash首页-配置-添加配置-链接导入，填写以下链接。
+### Step 1. Clash首页-配置-添加配置-链接导入，填写以下任一链接。
 
-**Original link 🔗:**
-
-<img width="150" height="150" alt="JJ-clash-config-url-qr" src="https://github.com/user-attachments/assets/5f927645-9c1f-4bb1-88a4-72d833b4fc2d" />
-
+**主链路（gh-proxy.org｜最快，≤60 秒更新）：**
 ```text
-https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config.yaml
+https://gh-proxy.org/https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config.yaml
 ```
 
-**China acceleration 🚀:**
+**备链路（gh.idayer.com｜不同链路，实时）：**
+```text
+https://gh.idayer.com/https://raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config.yaml
+```
+
+<p align="left"><img width="180" alt="JJ-config.yaml 主链接二维码" src="./assets/qr/JJ-config-primary-mirrors.svg" /> <img width="180" alt="JJ-config.yaml 备用链接二维码" src="./assets/qr/JJ-config-backup-mirrors.svg" /></p>
+
+**兜底链路（cdn.jsdelivr.net｜最稳，接受最长约 12 小时延迟）：**
 ```text
 https://cdn.jsdelivr.net/gh/sydneygao/JJ-clash-config@main/JJ-config.yaml
 ```
-```text
-https://git.yylx.win/raw.githubusercontent.com/sydneygao/JJ-clash-config/main/JJ-config.yaml
-```
+
 ### Step 2.✈️ 机场订阅与配置分离，机场订阅可通过 App首页-覆写-资源-代理来源 进行添加。
