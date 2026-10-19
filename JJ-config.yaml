@@ -101,6 +101,9 @@ proxy-groups:
     
   - name: Spotify
     <<: *PR
+
+  - name: TikTok
+    <<: *PR
     
   - name: PayPal
     <<: *PR
@@ -233,6 +236,14 @@ rule-providers:
     format: mrs
     url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs'
     path: ./rules/google.mrs
+    interval: 86400
+
+  tikok_domain:
+    type: http
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok@!cn.mrs'
+    path: ./rules/tiktok.mrs
     interval: 86400
 
   github_domain:
@@ -467,6 +478,9 @@ rules:
 
   # Apple
   - RULE-SET,apple_domain,Apple
+
+  # TikTok
+  - RULE-SET,tiktok_domain,TikTok
 
   # Github 
   - RULE-SET,github_domain,默认代理
