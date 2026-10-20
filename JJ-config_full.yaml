@@ -92,15 +92,15 @@ proxy-groups:
   - &PR
     name: Google
     type: select
-    proxies: [默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, DIRECT, REJECT]
+    proxies: [默认代理, 香港自动, 日本自动, 新加坡自动, 台湾自动, 美国自动, 手动选择, DIRECT, REJECT]
 
   - name: Apple
     type: select
-    proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, REJECT]
+    proxies: [DIRECT, 默认代理, 香港自动 日本自动, 日本手动, 新加坡自动, 台湾自动, 美国自动, 手动选择, REJECT]
 
   - name: Microsoft
     type: select
-    proxies: [DIRECT, 默认代理, 香港自动, 香港手动, 日本自动, 日本手动, 新加坡自动, 新加坡手动, 台湾自动, 台湾手动, 美国自动, 美国手动, 手动选择, REJECT]
+    proxies: [DIRECT, 默认代理, 香港自动, 日本自动, 日本手动, 新加坡自动, 台湾自动, 美国自动, 手动选择, REJECT]
  
   - name: Ai
     <<: *PR
@@ -177,36 +177,7 @@ proxy-groups:
     lazy: true
     hidden: true
 
-  # 港 / 日 / 新 / 台 / 美：区域手动选择组（显示）
-  - name: 香港手动
-    type: select
-    use: [Airport1]
-    filter: '(?i)(?:香港|港|HK|HKG|Hong[\s_-]*Kong)'
-    hidden: false
-
-  - name: 日本手动
-    type: select
-    use: [Airport1]
-    filter: '(?i)(?:日本|日|JP|JPN|Japan)'
-    hidden: false
-
-  - name: 新加坡手动
-    type: select
-    use: [Airport1]
-    filter: '(?i)(?:新加坡|新|SG|SGP|Singapore)'
-    hidden: false
-
-  - name: 台湾手动
-    type: select
-    use: [Airport1]
-    filter: '(?i)(?:台湾|台灣|🇹🇼|\bTW\b|\bTWN\b|Taiwan|Taipei|TPE)'
-    hidden: false
-
-  - name: 美国手动
-    type: select
-    use: [Airport1]
-    filter: '(?i)(?:美国|美|United\s*States|UnitedStates|\bUS\b|\bUSA\b)'
-    hidden: false
+  # 手动选择组
 
   - name: 手动选择
     type: select
@@ -438,7 +409,65 @@ rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
 
   # 自定义前置规则
- 
+  # 其他直连
+  - DOMAIN-SUFFIX,unpkg.com,DIRECT
+  - DOMAIN-SUFFIX,m-team.cc,DIRECT
+  - DOMAIN-SUFFIX,stream-link.org,DIRECT
+  - DOMAIN-SUFFIX,bestemby.com,DIRECT
+
+  # 其他代理 
+  - DOMAIN-SUFFIX,jpush.cn,默认代理
+  - DOMAIN-SUFFIX,godaddy.com,默认代理
+  - DOMAIN-SUFFIX,qichiyu.com,默认代理
+  
+  # immtele机场
+  - DOMAIN-SUFFIX,prodigal4936.com,DIRECT
+  - DOMAIN-SUFFIX,immtele.com,DIRECT
+
+  # CDN加速
+  - DOMAIN-SUFFIX,esm.run,DIRECT
+  - DOMAIN-SUFFIX,jsdelivr.net,DIRECT
+  - DOMAIN-SUFFIX,jsdelivr.com,DIRECT
+
+  # > WeChat 补充
+  - DOMAIN-SUFFIX,weixin.qq.com.cn,DIRECT
+  - DOMAIN-SUFFIX,wechatpay.cn,DIRECT
+
+  # 小红书
+  - DOMAIN-SUFFIX,fengkongcloud.com,DIRECT
+  - DOMAIN-SUFFIX,xhscdn.com,DIRECT
+  - DOMAIN-SUFFIX,xhscdn.net,DIRECT
+  - DOMAIN-SUFFIX,xiaohongshu.com,DIRECT
+  - DOMAIN-SUFFIX,rednotecdn.com,DIRECT
+
+  # Dingtalk
+  - DOMAIN-SUFFIX,ztna-dingtalk.com,DIRECT
+
+  # 杨侃 app
+  - DOMAIN-SUFFIX,haotianbaichuan.com,DIRECT
+  - DOMAIN-SUFFIX,qcloud.com,DIRECT
+
+  # RadioApp
+  - DOMAIN-SUFFIX,streamtheworld.com,DIRECT
+  - DOMAIN-SUFFIX,theradioapp.com,DIRECT
+  
+  # Overcast播客app
+  - DOMAIN-SUFFIX,overcast.fm,默认代理
+  - DOMAIN-SUFFIX,overcast-cdn.com,默认代理
+
+  # Cortis app weverse
+  - DOMAIN-SUFFIX,naver.com,默认代理
+  - DOMAIN-SUFFIX,weverseshop.io,默认代理
+  - DOMAIN-SUFFIX,navercorp.com,默认代理
+  - DOMAIN-SUFFIX,weverse.io,默认代理
+  - DOMAIN-SUFFIX,wevpstatic.net,默认代理
+  
+  # Clash
+  - DOMAIN-SUFFIX,stash.wiki,默认代理
+  - DOMAIN-SUFFIX,clashmi.app,默认代理
+  - DOMAIN-SUFFIX,clash.md,默认代理
+  - DOMAIN-SUFFIX,nssurge.com,默认代理 
+  
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
   
