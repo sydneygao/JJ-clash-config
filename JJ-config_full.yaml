@@ -466,7 +466,13 @@ rules:
   - DOMAIN-SUFFIX,stash.wiki,默认代理
   - DOMAIN-SUFFIX,clashmi.app,默认代理
   - DOMAIN-SUFFIX,clash.md,默认代理
-  - DOMAIN-SUFFIX,nssurge.com,默认代理 
+  - DOMAIN-SUFFIX,nssurge.com,默认代理
+  
+  # B站防PCDN
+  - DOMAIN-SUFFIX,mcdn.bilivideo.cn,REJECT
+  - DOMAIN-SUFFIX,mcdn.bilivideo.com,REJECT
+  - DOMAIN-SUFFIX,szbdyd.com,REJECT
+  - DOMAIN-KEYWORD,pcdn.biliapi.net,REJECT 
   
   # Ai前置防风控
   - RULE-SET,ai_domain,Ai
