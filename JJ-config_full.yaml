@@ -68,11 +68,11 @@ profile:
   # 保存 Fake-IP 映射
   store-fake-ip: true
 
-# 远程代理集
+# 远程代理集，url替换为机场订阅地址，interval:0为不更新
 proxy-providers:
   Airport1:
     type: http
-    url: 'https://example.com/your-profile.yaml' # 替换为机场订阅地址
+    url: 'https://example.com/your-profile.yaml'
     interval: 86400
     filter: '^(?!(?:.*流量.*|.*时间.*|.*到期.*)).*$'
     health-check:
@@ -181,7 +181,6 @@ proxy-groups:
     hidden: true
 
   # 手动选择组
-
   - name: 手动选择
     type: select
     use: [Airport1]
