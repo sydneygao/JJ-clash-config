@@ -28,12 +28,12 @@ https://cdn.jsdelivr.net/gh/sydneygao/JJ-clash-config@main/JJ-config_full.yaml
 ```
 
 ### Step 2.✈️ 添加机场订阅 
-**找到以下代码，补充完整信息**
+**找到以下代码，补充完整信息，url替换为机场订阅地址**
 ```text
 proxy-providers:
   Airport1:
     type: http
-    url: 'https://example.com/your-profile.yaml' # 替换为机场订阅地址
+    url: 'https://example.com/your-profile.yaml'
     path: ./providers/Airport1.yaml
     interval: 43200
     filter: '^(?!(?:.*流量.*|.*时间.*|.*到期.*)).*$'
