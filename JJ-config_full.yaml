@@ -96,11 +96,11 @@ proxy-groups:
 
   - name: Apple
     type: select
-    proxies: [DIRECT, 默认代理, 香港自动 日本自动, 日本手动, 新加坡自动, 台湾自动, 美国自动, 手动选择, REJECT]
+    proxies: [DIRECT, 默认代理, 香港自动, 日本自动, 新加坡自动, 台湾自动, 美国自动, 手动选择, REJECT]
 
   - name: Microsoft
     type: select
-    proxies: [DIRECT, 默认代理, 香港自动, 日本自动, 日本手动, 新加坡自动, 台湾自动, 美国自动, 手动选择, REJECT]
+    proxies: [DIRECT, 默认代理, 香港自动, 日本自动, 新加坡自动, 台湾自动, 美国自动, 手动选择, REJECT]
  
   - name: Ai
     <<: *PR
