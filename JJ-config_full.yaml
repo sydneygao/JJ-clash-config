@@ -450,8 +450,8 @@ rules:
   - DOMAIN-SUFFIX,qcloud.com,DIRECT
 
   # RadioApp
-  - DOMAIN-SUFFIX,streamtheworld.com,DIRECT
-  - DOMAIN-SUFFIX,theradioapp.com,DIRECT
+  - DOMAIN-SUFFIX,streamtheworld.com,默认代理
+  - DOMAIN-SUFFIX,theradioapp.com,默认代理
   
   # Overcast播客app
   - DOMAIN-SUFFIX,overcast.fm,默认代理
@@ -561,13 +561,13 @@ rules:
   # PlayStation / Sony
   - IP-ASN,33353,Games,no-resolve
   # Nintendo
-  - IP-ASN,11278,Games,no-resolve # Nintendo of America
-  - IP-ASN,152877,Games,no-resolve # Nintendo Japan
+  - IP-ASN,11278,Games,no-resolve
+  - IP-ASN,152877,Games,no-resolve
   # Roblox
   - IP-ASN,22697,Games,no-resolve
   - IP-ASN,11281,Games,no-resolve
   # Telegram
   # 海外兜底
-  - RULE-SET,geolocation-!cn,默认代理 # 非国内区域
+  - RULE-SET,geolocation-!cn,默认代理
   - RULE-SET,cn_ip,DIRECT,no-resolve
   - MATCH,漏网之鱼
