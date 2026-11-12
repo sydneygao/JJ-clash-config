@@ -5,6 +5,20 @@
 # 使用前请将 Airport1.url 替换为你信任的 Clash / mihomo 订阅地址。
 # 不要把含有 Token、用户名或密码的真实订阅地址提交到公开仓库。
 
+# 远程代理集，url替换为机场订阅地址，interval:0为不更新
+proxy-providers:
+  Airport1:
+    type: http
+    url: 'https://example.com/your-profile.yaml'
+    interval: 86400
+    filter: '^(?!(?:.*流量.*|.*时间.*|.*到期.*)).*$'
+    health-check:
+      enable: true
+      url: 'https://www.gstatic.com/generate_204'
+      interval: 600
+      timeout: 5000
+      lazy: true
+
 # 常规设置
 mode: rule
 log-level: warning
@@ -26,6 +40,9 @@ dns:
     - 119.29.29.29
   # 主 DNS
   nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  proxy-server-nameserver:
     - 223.5.5.5
     - 119.29.29.29
 
@@ -67,20 +84,6 @@ profile:
   store-selected: true
   # 保存 Fake-IP 映射
   store-fake-ip: true
-
-# 远程代理集，url替换为机场订阅地址，interval:0为不更新
-proxy-providers:
-  Airport1:
-    type: http
-    url: 'https://example.com/your-profile.yaml'
-    interval: 86400
-    filter: '^(?!(?:.*流量.*|.*时间.*|.*到期.*)).*$'
-    health-check:
-      enable: true
-      url: 'https://www.gstatic.com/generate_204'
-      interval: 600
-      timeout: 5000
-      lazy: true
       
 # 策略组
 proxy-groups:
